@@ -1,39 +1,40 @@
 <!doctype html>
 <html>
-  <head>
-    <title>test</title>
-    <meta charset="utf-8">
-  </head>
-  
-  <body>
-    <p>
-    <pre>
-        <?php 
-        
+
+<head>
+  <title>test</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <p>
+  <pre>
+        <?php
+
         echo $_SERVER['SERVER_NAME'];
         print_r($_SERVER);
-        
+
         $variavel = "olá mundo";
         echo $variavel;
         echo '<br/>';
         $name = "João";
-        echo 'Olá '.$name.', bem vindo.';
+        echo 'Olá ' . $name . ', bem vindo.';
 
         $inteiro = 10;
         $booleano = true;
         $float = 10.5234324;
 
-        define('CONSTANTE','<br/>nunca altera <br/>');
+        define('CONSTANTE', '<br/>nunca altera <br/>');
         echo CONSTANTE;
-        
-        $meu_array = array('name1','name2','name3');
-        $meu_array2 = ['name1','name2','name3'];
+
+        $meu_array = array('name1', 'name2', 'name3');
+        $meu_array2 = ['name1', 'name2', 'name3'];
 
         $dicionario['nome'] = 'João';
         $dicionario['idade'] = 20;
         $dicionario['país'] = 'Brasil';
 
-        echo $dicionario['nome'].', '.$dicionario['idade'].' anos.';
+        echo $dicionario['nome'] . ', ' . $dicionario['idade'] . ' anos.';
 
         $cor_da_div = 'yellow';
         //concatenacao com '\'
@@ -44,25 +45,23 @@
         $subtracao = $num1 - $num2;
         $divisao = $num1 / $num2;
         $resto = $num1 % $num2;
-        
-        if($num1 == $num2){
-          echo "o numero ".$num1." eh igual ao numero ".$num2;
 
-        }else{
-          echo "o numero ".$num1." eh diferente ao numero ".$num2;
+        if ($num1 == $num2) {
+          echo "o numero " . $num1 . " eh igual ao numero " . $num2;
+        } else {
+          echo "o numero " . $num1 . " eh diferente ao numero " . $num2;
         }
 
         /*Uso do if, else e elseif */
         echo "<br/>";
         $num1 = 1;
         $num2 = "1";
-        if($num1 === $num2){
-          echo "o numero ".$num1." eh igual em valor e tipo ao numero ".$num2;
-
-        }elseif($num1 == $num2){
-          echo "o numero ".$num1." eh igual em valor e nao em tipo ao numero ".$num2;
-        }else{
-          echo "o numero ".$num1." nao eh igual em valor nem tipo ao numero ".$num2;
+        if ($num1 === $num2) {
+          echo "o numero " . $num1 . " eh igual em valor e tipo ao numero " . $num2;
+        } elseif ($num1 == $num2) {
+          echo "o numero " . $num1 . " eh igual em valor e nao em tipo ao numero " . $num2;
+        } else {
+          echo "o numero " . $num1 . " nao eh igual em valor nem tipo ao numero " . $num2;
         }
 
         /*Operadores logicos */
@@ -70,37 +69,37 @@
         $num1 = 1;
         $num2 = 10;
 
-        if($num1 < $num2 || $num1 == $num2){
+        if ($num1 < $num2 || $num1 == $num2) {
           echo "uma das acertivas esta correta ou as duas estao<br/>";
         }
-        if($num1 + 9 >= $num2 && $num1 != $num2){
+        if ($num1 + 9 >= $num2 && $num1 != $num2) {
           echo "As duas acertivas estao corretas<br/>";
         }
 
         /*Laco de repeticoes */
-        for($contador = 0; $contador < 256; $contador+=32){
+        for ($contador = 0; $contador < 256; $contador += 32) {
 
           echo "<div style=\"background-color:rgb($contador,$contador, 10);font-size:$contador%\"> Laço For</div> ";
-          
         }
 
         $contador = 0;
-        while($contador < 256){
+        while ($contador < 256) {
           echo "<div style=\"background-color:rgb($contador,10, $contador);font-size:$contador%\"> Laço While</div> ";
-          
-          $contador+=32;
+
+          $contador += 32;
         }
 
 
-        
-        
+
+
         ?>
 
         
 
         
         </pre>
-        
-    </p>
-  </body>
+
+  </p>
+</body>
+
 </html>
