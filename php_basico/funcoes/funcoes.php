@@ -70,3 +70,4 @@ function calculadora_completa($function = 1, $num1, $num2)
             return resto($num1, $num2);
     }
 }
+?>
