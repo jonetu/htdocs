@@ -1,18 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>test</title>
+    <title>variaveis</title>
     <meta charset="utf-8">
   </head>
   
   <body>
     <p>
-    <pre
         <?php 
-        
-        echo $_SERVER['SERVER_NAME'];
-        print_r($_SERVER);
-        
         $variavel = "olá mundo";
         echo $variavel;
         echo '<br/>';
@@ -38,10 +33,9 @@
         $cor_da_div = 'yellow';
         //concatenacao com '\'
         echo "<div style=\"background-color:$cor_da_div\"> conteúdo concatenado</div> ";
+
         ?>
 
-        </pre>
-        
     </p>
   </body>
 </html>
