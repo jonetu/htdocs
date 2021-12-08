@@ -10,8 +10,8 @@
     $calculadora = new MinhaCalculadora();
     echo ' soma = '.$calculadora->fazerSoma(10,20)."<br/>";
 
-    $pessoa1 = new Pessoa('Joao',1002);
-    $pessoa2 = new Pessoa('Maria',1003);
+    $pessoa1 = new Pessoa('Joao',180);
+    $pessoa2 = new Pessoa('Maria',190);
     $pessoa1->Hello();
     $pessoa2->Hello();
 ?>
