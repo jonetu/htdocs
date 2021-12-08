@@ -10,7 +10,11 @@ class ClasseOlaMundo
     }
 
     public function falarEmMaiusculo(){
-        echo "Oi, Sua mensagem em maiusculo: ".strtoupper($this->mensagem)."<br/>";
+        echo "Oi, Sua mensagem em maiusculo: ".$this->tranformarEmMaiusculo()."<br/>";
+    }
+
+    private function tranformarEmMaiusculo(){
+        return strtoupper($this->mensagem);
     }
 
 }
