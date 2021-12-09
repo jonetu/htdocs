@@ -40,7 +40,7 @@ if (isset($_POST['cliente'])) {
         <input type="text" name="nome" placeholder="nome" />
         <input type="text" name="email" placeholder="email" />
         <input type="password" name="senha" placeholder="senha" />
-        <input type="submit" name="cliente" valie="enviar!" />
+        <input type="submit" name="cliente" value="enviar!" />
     </form>
 
 </body>
