@@ -25,7 +25,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=mybd', 'root', '');
     <h1>Dados cadastrados:</h1>
     <pre>
         <?php
-        print_r($info);
+        #print_r($info);
 
         echo '<hr>';
         foreach($info as $key => $value){
