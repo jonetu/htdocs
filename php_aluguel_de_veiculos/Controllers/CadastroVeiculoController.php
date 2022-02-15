@@ -1,10 +1,10 @@
 <?php 
 namespace Controllers;
-class CadastroController extends Controller{
+class CadastroVeiculoController extends Controller{
 
     public function __construct()
     {
-        $this->view = new \Views\View('cadastro');
+        $this->view = new \Views\View('CadastroVeiculo');
     }
 
     public function execute(){
@@ -25,7 +25,7 @@ class CadastroController extends Controller{
                 echo $precoDia;
             }
         }
-        $this->view->render(array('titulo'=>'cadastro'));
+        $this->view->render(array('titulo'=>'CadastroVeiculo'));
     }
 
 }
