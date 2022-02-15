@@ -1,0 +1,11 @@
+<?php
+interface interfaceLocadora{
+    public function cadastroVeiculo();
+    public function cadastroCliente();
+    public function solicitacaoLocacaoDeVeiculo($placaCarro);
+    public function historicoLocacao();
+    public function listarVeiculos();
+    public function listarClientes();
+
+}
+?>
