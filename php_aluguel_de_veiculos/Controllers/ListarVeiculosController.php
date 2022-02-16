@@ -1,5 +1,8 @@
 <?php 
 namespace Controllers;
+
+use PDO;
+
 class ListarVeiculosController extends Controller{
 
     public function __construct()
@@ -8,7 +11,8 @@ class ListarVeiculosController extends Controller{
     }
 
     public function execute(){
-        $this->view->render(array('titulo'=>'listarveiculos'));
+        $info = \Models\VeiculoModel::listarVeiculos();
+        $this->view->render(array('carros'=>$info));
     }
 
 }

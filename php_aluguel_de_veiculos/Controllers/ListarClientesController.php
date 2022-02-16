@@ -8,7 +8,8 @@ class ListarClientesController extends Controller{
     }
 
     public function execute(){
-        $this->view->render(array('titulo'=>'listarclientes'));
+        $info = \Models\ClienteModel::listarClientes();
+        $this->view->render(array('clientes'=>$info));
     }
 
 }
