@@ -1,7 +1,6 @@
 <?php
 
-define('DEBUG',true);
-define('INCLUDE_PATH_FULL','http://localhost/php_aluguel_de_veiculos/Views/pages/');
+define('DEBUG',false);
 class App{
 
     public function execute(){
@@ -28,7 +27,8 @@ class App{
             $controller = new $className();
             $controller->execute();
         }else{
-            die("ERROR página não definida - CONTROLLER UNDEFINED...");
+            include("Views/pages/templates/ERROR404.php");
+            die();
         }
     }
 

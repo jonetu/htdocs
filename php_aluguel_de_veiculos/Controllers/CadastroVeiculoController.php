@@ -9,14 +9,14 @@ class CadastroVeiculoController extends Controller{
 
     public function execute(){
         if(isset($_POST['action'])){
-            echo 'clicado!';
-            
-            $placa = $_POST['placa'];
-            $marca = $_POST['marca'];
-            $modelo = $_POST['modelo'];
+            $placa = strtoupper($_POST['placa']);
+            $marca = strtoupper($_POST['marca']);
+            $modelo = strtoupper($_POST['modelo']);
             $precoDia = $_POST['precoDia'];
-            if(\Models\CadastrarModel::cadastrar($placa, $marca, $modelo,$precoDia)){
-                echo 'true!';
+            if(\Models\VeiculoModel::cadastrar($placa, $marca, $modelo,$precoDia)){
+                echo "<script type='text/javascript'>alert('CADASTRADO COM SUCESSO');</script>";
+            }else{
+                echo "<script type='text/javascript'>alert('ERRO NO CADASTRO');</script>";
             }
             if(DEBUG){
                 echo $placa;
