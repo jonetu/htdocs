@@ -16,38 +16,38 @@
     ?>
 
 
-<div class= "container">
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Placa</th>
-                <th scope="col">Disponibilidade</th>
-                <th scope="col">Preço do Aluguel</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+    <div class="container">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Disponibilidade</th>
+                    <th scope="col">Preço do Aluguel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 
-            foreach ($info as $key => $value) {
-                echo   "<tr>";
-                echo   "<th scope='row'>" . $info[$key]['id'] . "</th>";
-                echo   "<td>" . $info[$key]['modelo'] . "</td>";
-                echo   "<td>" . $info[$key]['marca'] . "</td>";
-                echo   "<td>" . $info[$key]['placa'] . "</td>";
-                if ($info[$key]['disponibilidade']) {
-                    echo   "<td>Disponível</td>";
-                } else {
-                    echo   "<td>Indisponível</td>";
+                foreach ($info as $key => $value) {
+                    echo   "<tr>";
+                    echo   "<th scope='row'>" . $info[$key]['id'] . "</th>";
+                    echo   "<td>" . $info[$key]['modelo'] . "</td>";
+                    echo   "<td>" . $info[$key]['marca'] . "</td>";
+                    echo   "<td>" . $info[$key]['placa'] . "</td>";
+                    if ($info[$key]['disponibilidade']) {
+                        echo   "<td>Disponível</td>";
+                    } else {
+                        echo   "<td>Indisponível</td>";
+                    }
+                    echo   "<td>R$ " . $info[$key]['precoDia'] . "</td>";
+                    echo "</tr>";
                 }
-                echo   "<td>R$ " . $info[$key]['precoDia'] . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
     </div>
 </body>
 
