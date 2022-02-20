@@ -29,6 +29,9 @@
       <li class="nav-item">
         <a class="nav-link" href="listarclientes">Listar clientes</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pagamento">Pagamento</a>
+      </li>
     </ul>
     <span class="navbar-text">
       Aluguel de carros 
