@@ -36,7 +36,7 @@
                 echo   "<td>" . $info[$key]['nome'] . "</td>";
                 echo   "<td>" . $info[$key]['cpf'] . "</td>";
                 echo   "<td>" . $info[$key]['email'] . "</td>";
-                echo   "<td>R$ " . $info[$key]['telefone'] . "</td>";
+                echo   "<td>" . $info[$key]['telefone'] . "</td>";
                 echo "</tr>";
             }
             ?>
