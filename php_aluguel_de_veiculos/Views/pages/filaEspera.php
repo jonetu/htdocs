@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Selecione o carro indisponível para o aluguel</label>
-                <input list="carros" name="carros" class="form-control" placeholder="Placa do carro"/>
+                <input list="carros" name="carros" class="form-control" placeholder="Placa do carro" />
                 <datalist id="carros" name="carros">
                     <?php
                     //resgatar as informacoes de todos os carros
@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Selecione o cliente</label>
-                <input list="clientes" name="clientes" class="form-control" required placeholder="cpf do cliente"/>
+                <input list="clientes" name="clientes" class="form-control" required placeholder="cpf do cliente" />
                 <datalist id="clientes" name="clientes">
                     <?php
                     $clientes = $parameter['clientes'];
@@ -71,15 +71,20 @@
             <tbody>
                 <?php
                 $info = $parameter['fila'];
-
+                $clientes = $parameter['clientes'];
                 foreach ($info as $key => $value) {
                     echo   "<tr>";
                     echo   "<th scope='row'>" . $info[$key]['id'] . "</th>";
                     echo   "<td>" . $info[$key]['carro'] . "</td>";
-                    echo   "<td>" . $info[$key]['cliente'] . "</td>";
+
+                    foreach ($clientes as $cpf => $valor) {
+                        if ($clientes[$cpf]["cpf"] == $info[$key]['cliente']) {
+                            echo "<td>" . $clientes[$cpf]["nome"] . " - " . $clientes[$cpf]["cpf"] . "</td>";
+                        }
+                    }
+
                     echo   "<td>" . $info[$key]['posicao'] . "º na fila</td>";
                     echo   "<td>" . $info[$key]['diasDeAluguel'] . " dias</td>";
-
                     echo "</tr>";
                 }
 

@@ -14,15 +14,15 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">cpf</label>
-    <input type="text" class="form-control" name="cpf" placeholder="Formato: 12312312312" maxlength="11">
+    <input type="text" class="form-control" name="cpf" placeholder="Formato: 12312312312" maxlength="11" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">email</label>
-    <input type="text" class="form-control" name="email" placeholder="exemplo@exemplo.com">
+    <input type="text" class="form-control" name="email" placeholder="exemplo@exemplo.com"  >
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Telefone de contato</label>
-    <input type="number" class="form-control" name="telefone" placeholder="Formato: 86912341234">
+    <input type="number" class="form-control" name="telefone" placeholder="Formato: 86912341234" >
   </div>
   <button type="submit" name="action" class="btn btn-success">Cadastrar Cliente</button>
 </form>
