@@ -38,9 +38,9 @@
                     echo   "<td>" . $info[$key]['marca'] . "</td>";
                     echo   "<td>" . $info[$key]['placa'] . "</td>";
                     if ($info[$key]['disponibilidade']) {
-                        echo   "<td>Disponível</td>";
+                        echo   "<td class='text-success'>Disponível</td>";
                     } else {
-                        echo   "<td>Indisponível</td>";
+                        echo   "<td class='text-danger'>Indisponível</td>";
                     }
                     echo   "<td>R$ " . $info[$key]['precoDia'] . "</td>";
                     echo "</tr>";

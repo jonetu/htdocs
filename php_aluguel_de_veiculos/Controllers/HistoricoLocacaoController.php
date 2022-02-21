@@ -8,7 +8,7 @@ class HistoricoLocacaoController extends Controller{
     }
 
     public function execute(){
-        $historico = \Models\AluguelModel::historicoAluguel();
+        $historico = \Models\AluguelModel::historicoGeral();
         $clientes = \Models\ClienteModel::listarClientes();
         $veiculos = \Models\VeiculoModel::listarVeiculos();
         $this->view->render(array('historico'=>$historico,'clientes'=>$clientes,'veiculos'=>$veiculos));

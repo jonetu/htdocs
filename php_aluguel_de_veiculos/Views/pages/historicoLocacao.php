@@ -30,6 +30,7 @@
                     <th scope="col">Placa do carro</th>
                     <th scope="col">Cliente</th>
                     <th scope="col">Preço Final</th>
+                    <th scope="col">Pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,12 @@
                             echo "<td>R$".$veiculos[$placa]["precoDia"] * $tempoDeAluguelEmDia."</td>";
                         }
                     }
+                    if($historico[$key]['pagamento']){
+                        echo   "<td class='text-success' >PAGO</td>";
+                    }else{
+                        echo   "<td class='text-danger' >EM ABERTO</td>";
+                    }
+                    
                     echo "</tr>";
                 }
                 ?>

@@ -39,21 +39,23 @@
                     echo "<p class='lead'>";
                     $veiculo = $parameter['veiculo'];
                     $aluguel = $parameter['aluguelselecionado'];
-                    echo " Placa do carro ---> " . $aluguel[0]["carro"];
-                    echo "<br>";
-                    echo " Cliente ---> " . $aluguel[0]["cliente"];
-                    echo "<br>";
-                    $datetime1 = date_create($aluguel[0]['dataInicio']);
-                    $datetime2 = date_create($aluguel[0]['dataFim']);
-                    $tempoDeAluguelEmDia  = date_diff($datetime1, $datetime2)->format('%d');
-                    echo "Tempo de aluguel ---> " . $tempoDeAluguelEmDia . " dias";
-                    echo "<br>";
-                    echo "preço por dia ---> R$" . $veiculo["precoDia"];
-                    echo "<br>";
-                    echo "preço final: R$" . $tempoDeAluguelEmDia * $veiculo["precoDia"];
-                    echo "<input type='hidden' name='aluguelselecionado' value='".$aluguel[0]['id']."'>";
-                    echo "</p>";
-                    echo "<button type='submit' name='action' class='btn btn-success '>Finalizar Pagamento</button>";
+                    if ($aluguel) {
+                        echo " Placa do carro ---> " . $aluguel[0]["carro"];
+                        echo "<br>";
+                        echo " Cliente ---> " . $aluguel[0]["cliente"];
+                        echo "<br>";
+                        $datetime1 = date_create($aluguel[0]['dataInicio']);
+                        $datetime2 = date_create($aluguel[0]['dataFim']);
+                        $tempoDeAluguelEmDia  = date_diff($datetime1, $datetime2)->format('%d');
+                        echo "Tempo de aluguel ---> " . $tempoDeAluguelEmDia . " dias";
+                        echo "<br>";
+                        echo "preço por dia ---> R$" . $veiculo["precoDia"];
+                        echo "<br>";
+                        echo "preço final: R$" . $tempoDeAluguelEmDia * $veiculo["precoDia"];
+                        echo "<input type='hidden' name='aluguelselecionado' value='" . $aluguel[0]['id'] . "'>";
+                        echo "</p>";
+                        echo "<button type='submit' name='action' class='btn btn-success '>Finalizar Pagamento</button>";
+                    }
                 }
                 ?>
             </div>
