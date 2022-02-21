@@ -26,7 +26,7 @@ class HomeController extends Controller
             }else{
                 echo "<script type='text/javascript'>alert('ERRO NO CADASTRO');</script>";
             }
-            //header("Refresh:0");
+            header("Refresh:0");
         }
 
         $carros = \Models\VeiculoModel::listarVeiculos();

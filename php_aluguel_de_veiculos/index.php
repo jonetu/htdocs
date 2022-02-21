@@ -19,28 +19,16 @@
     </header>
 
     <?php
-    define('__ROOT__', realpath(dirname(__FILE__)));
-    
 
-    //AUTOLOAD - carregar todas as classes dinamicamente
+
+    define('__ROOT__', realpath(dirname(__FILE__)));
+
     $autoload = function ($class) {
         include($class . '.php');
-        if($class == "Controllers"){
-            include(__ROOT__.'Controllers/'.$class.'.php');
-        }
-        if($class == "Views"){
-            include(__ROOT__.'Views/'.$class.'.php');
-        }
-        if($class == "Models"){
-            include(__ROOT__.'Models/'.$class.'.php');
-        }
-        
-
     };
     spl_autoload_register($autoload);
 
 
-    //Start do app
     $app = new App();
     $app->execute();
     ?>
