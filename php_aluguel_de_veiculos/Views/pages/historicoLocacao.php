@@ -42,11 +42,15 @@
                     echo   "<td>" . $historico[$key]['dataInicio'] . "</td>";
                     echo   "<td>" . $historico[$key]['dataFim'] . "</td>";
                     echo   "<td>" . $historico[$key]['carro'] . "</td>";
-                    echo   "<td>" . $historico[$key]['cliente'] . "</td>";
+
+                    foreach ($clientes as $cpf => $valor) {
+                        if ($clientes[$cpf]["cpf"] == $historico[$key]['cliente']){
+                            echo "<td>".$clientes[$cpf]["nome"]." - ".$clientes[$cpf]["cpf"]."</td>";
+                        }
+                    }
                     $datetime1 = date_create($historico[$key]['dataInicio']);
                     $datetime2 = date_create($historico[$key]['dataFim']);
                     $tempoDeAluguelEmDia  = date_diff($datetime1, $datetime2)->format('%d');
-                    //echo   "<td>" . $tempoDeAluguelEmDia . "</td>";
                     foreach ($veiculos as $placa => $valor) {
                         if ($veiculos[$placa]["placa"] == $historico[$key]['carro']){
                             echo "<td>R$".$veiculos[$placa]["precoDia"] * $tempoDeAluguelEmDia."</td>";
