@@ -1,13 +1,17 @@
-<?php 
+<?php
+
 namespace Controllers;
-class PagamentoController extends Controller{
+
+class PagamentoController extends Controller
+{
 
     public function __construct()
     {
         $this->view = new \Views\View('pagamento');
     }
 
-    public function execute(){
+    public function execute()
+    {
         $veiculos = \Models\VeiculoModel::listarVeiculos();
         $alugueis = \Models\AluguelModel::historicoAluguel();
         $aluguelSelecionado = 0;
@@ -15,28 +19,28 @@ class PagamentoController extends Controller{
 
         if (isset($_POST['search'])) {
             $aluguelSelecionado = \Models\AluguelModel::pesquisarAluguel($_POST['alugueis']);
-            foreach ($veiculos as $placa => $valor) {
-                if ($veiculos[$placa]["placa"] == $aluguelSelecionado[0]["carro"]) {
-                    $veiculo = $veiculos[$placa];
+            if (!$aluguelSelecionado) {
+                echo "<script type='text/javascript'>alert('ALUGUEL NÃO ENCONTRADO');</script>";
+            } else {
+                foreach ($veiculos as $placa => $valor) {
+                    if ($veiculos[$placa]["placa"] == $aluguelSelecionado[0]["carro"]) {
+                        $veiculo = $veiculos[$placa];
+                    }
                 }
-
             }
-
         }
-        if(isset($_POST['action'])){
+        if (isset($_POST['action'])) {
             $aluguelSelecionadoParaFinalizar = $_POST['aluguelselecionado'];
-            echo "finalizar pagamento concluido!".$aluguelSelecionadoParaFinalizar;
+            if (DEBUG) {
+                echo "finalizar pagamento concluido! ID=" . $aluguelSelecionadoParaFinalizar;
+            }
             $aluguelSelecionado = \Models\AluguelModel::pesquisarAluguel($aluguelSelecionadoParaFinalizar);
             \Models\FilaModel::proximoDaFila($aluguelSelecionado[0]["carro"]);
-
-
             \Models\AluguelModel::finalizarAluguel($aluguelSelecionadoParaFinalizar);
-
-            //header("Refresh:0");
+            echo "<script type='text/javascript'>alert('ALUGUEL PAGO COM SUCESSO');</script>";
+            header("Refresh:0");
         }
 
-        $this->view->render(array('alugueis'=>$alugueis,'aluguelselecionado'=>$aluguelSelecionado, 'veiculo'=>$veiculo));
+        $this->view->render(array('alugueis' => $alugueis, 'aluguelselecionado' => $aluguelSelecionado, 'veiculo' => $veiculo));
     }
-
 }
-?>

@@ -65,7 +65,7 @@ class FilaModel
             $data_inicio =  date("Y-m-d");
             $data_fim =  date("Y-m-d", strtotime($data_inicio . " + " . $info[0]['diasDeAluguel'] . " days"));
             echo "datafim= " . $data_fim;
-            \Models\AluguelModel::cadastrarAluguel($data_inicio, $data_fim, $carro, $cliente);
+            \Models\AluguelModel::cadastrarAluguelEmFila($data_inicio, $data_fim, $carro, $cliente);
             //alterar posicoes
             $sql = $pdo->prepare("UPDATE `fila` SET posicao = posicao - 1 WHERE `carro` = ?");
             $sql->execute(array($carro));
@@ -73,14 +73,6 @@ class FilaModel
             //POP primeira posicao
             $sql = $pdo->prepare("DELETE FROM `fila` WHERE `posicao` = 0");
             $sql->execute();
-
-            //verifica se ainda existe cliente na fila: se não -> deixar veiculo disponivel
-            $sql = $pdo->prepare("SELECT * from `fila` WHERE carro=?");
-            $sql->execute(array($carro));
-            $info = $sql->fetchAll();
-            if (!$info) {
-                self::disponibilizarCarro($carro);
-            }
         }
     }
     public static function disponibilizarCarro($carro)
