@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Selecione o carro indisponível para o aluguel</label>
-                <input list="carros" name="carros" class="form-control" />
+                <input list="carros" name="carros" class="form-control" placeholder="Placa do carro"/>
                 <datalist id="carros" name="carros">
                     <?php
                     //resgatar as informacoes de todos os carros
@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Selecione o cliente</label>
-                <input list="clientes" name="clientes" class="form-control" />
+                <input list="clientes" name="clientes" class="form-control" required placeholder="cpf do cliente"/>
                 <datalist id="clientes" name="clientes">
                     <?php
                     $clientes = $parameter['clientes'];
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Quantidade de dias de aluguel previsto</label>
-                <input type="number" class="form-control" name="diasDeAluguel" min="1" max="120" placeholder="Ex: 1...120">
+                <input type="number" class="form-control" name="diasDeAluguel" required min="1" max="120" placeholder="Ex: 1...120">
             </div>
 
             <div class="container d-flex justify-content-center">
