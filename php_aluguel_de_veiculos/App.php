@@ -1,6 +1,7 @@
 <?php
 
 define('DEBUG',false);
+define('__ROOT__', realpath(dirname(__FILE__)));
 class App{
 
     public function execute(){

@@ -13,11 +13,8 @@
 </head>
 
 <body>
+    
     <?php
-
-
-    define('__ROOT__', realpath(dirname(__FILE__)));
-
     $autoload = function ($class) {
         include($class . '.php');
     };
