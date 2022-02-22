@@ -7,6 +7,3 @@ class Controller{
     public function execute(){}
     public function render(){}
 }
-
-
-?>

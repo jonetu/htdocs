@@ -21,9 +21,9 @@ class HomeController extends Controller
             $data_fim = $_POST['data'];
             $carro  = $_POST['carros'];
             $cliente  = $_POST['clientes'];
-            if(\Models\AluguelModel::cadastrarAluguel($data_inicio,$data_fim,$carro,$cliente)){
+            if (\Models\AluguelModel::cadastrarAluguel($data_inicio, $data_fim, $carro, $cliente)) {
                 echo "<script type='text/javascript'>alert('CADASTRADO COM SUCESSO');</script>";
-            }else{
+            } else {
                 echo "<script type='text/javascript'>alert('ERRO NO CADASTRO');</script>";
             }
             header("Refresh:0");
@@ -31,6 +31,6 @@ class HomeController extends Controller
 
         $carros = \Models\VeiculoModel::listarVeiculos();
         $clientes = \Models\ClienteModel::listarClientes();
-        $this->view->render(array('carros' => $carros,'clientes' => $clientes));
+        $this->view->render(array('carros' => $carros, 'clientes' => $clientes));
     }
 }

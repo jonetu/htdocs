@@ -22,4 +22,3 @@ class FilaEsperaController extends Controller{
     }
 
 }
-?>

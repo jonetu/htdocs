@@ -29,4 +29,3 @@ class CadastroClienteController extends Controller{
     }
 
 }
-?>

@@ -15,4 +15,3 @@ class HistoricoLocacaoController extends Controller{
     }
 
 }
-?>

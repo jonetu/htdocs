@@ -13,6 +13,8 @@ class View
         $this->footer = $footer;
         
     }
+    
+    //Função para renderizar a página
     // parameter -> parametros em array que posso passar na hora de renderizar
     public function render($parameter = []){
         include('pages/templates/'.$this->header.'.php');
@@ -20,6 +22,3 @@ class View
         include('pages/templates/'.$this->footer.'.php');
     }
 }
-
-
-?>

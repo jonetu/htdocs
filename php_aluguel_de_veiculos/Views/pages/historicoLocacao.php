@@ -10,9 +10,6 @@
 
     </h3>
 
-
-
-
     <?php
     $historico = $parameter['historico'];
     $clientes = $parameter['clientes'];
@@ -44,24 +41,24 @@
                     echo   "<td>" . $historico[$key]['carro'] . "</td>";
 
                     foreach ($clientes as $cpf => $valor) {
-                        if ($clientes[$cpf]["cpf"] == $historico[$key]['cliente']){
-                            echo "<td>".$clientes[$cpf]["nome"]." - ".$clientes[$cpf]["cpf"]."</td>";
+                        if ($clientes[$cpf]["cpf"] == $historico[$key]['cliente']) {
+                            echo "<td>" . $clientes[$cpf]["nome"] . " - " . $clientes[$cpf]["cpf"] . "</td>";
                         }
                     }
                     $datetime1 = date_create($historico[$key]['dataInicio']);
                     $datetime2 = date_create($historico[$key]['dataFim']);
                     $tempoDeAluguelEmDia  = date_diff($datetime1, $datetime2)->format('%d');
                     foreach ($veiculos as $placa => $valor) {
-                        if ($veiculos[$placa]["placa"] == $historico[$key]['carro']){
-                            echo "<td>R$".$veiculos[$placa]["precoDia"] * $tempoDeAluguelEmDia."</td>";
+                        if ($veiculos[$placa]["placa"] == $historico[$key]['carro']) {
+                            echo "<td>R$" . $veiculos[$placa]["precoDia"] * $tempoDeAluguelEmDia . "</td>";
                         }
                     }
-                    if($historico[$key]['pagamento']){
+                    if ($historico[$key]['pagamento']) {
                         echo   "<td class='text-success' >PAGO</td>";
-                    }else{
+                    } else {
                         echo   "<td class='text-danger' >EM ABERTO</td>";
                     }
-                    
+
                     echo "</tr>";
                 }
                 ?>

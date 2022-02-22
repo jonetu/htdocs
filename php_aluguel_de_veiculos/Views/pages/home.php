@@ -14,7 +14,7 @@
 
 
             <div class="form-group">
-            <label for="exampleFormControlInput1">Selecione o carro disponível para o aluguel</label>
+                <label for="exampleFormControlInput1">Selecione o carro disponível para o aluguel</label>
                 <input list="carros" name="carros" class="form-control" />
                 <datalist id="carros" name="carros">
                     <?php

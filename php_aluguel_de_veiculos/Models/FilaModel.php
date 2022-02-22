@@ -14,6 +14,13 @@ class FilaModel
         $sql->execute();
         return $sql->fetchAll();
     }
+
+    /**
+     * Registrar aluguel para a fila
+     * @param carro Veiculo escolhido
+     * @param cliente Cliente a espera
+     * @param dias dias previstos para registrar aluguel quando chegar a vez do aluguel na fila
+     */
     public static function colocarNaFila($carro, $cliente, $dias)
     {
         $pdo = new PDO('mysql:host=localhost;dbname=locadora', 'root', '');

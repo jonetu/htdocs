@@ -19,8 +19,6 @@ class App{
         $url.="Controller";
         if(DEBUG){
             echo 'URL='.$url.'<br>';
-            //echo "<script type='text/javascript'>alert('hi');</script>";
-
         }
         if(file_exists('Controllers/'.$url.'.php')){
             $className = 'Controllers\\'.$url;
@@ -33,5 +31,3 @@ class App{
     }
 
 }
-
-?>

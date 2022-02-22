@@ -36,11 +36,10 @@ class AluguelModel
         $sql->execute(array($data_inicio, $carro, $data_fim, $cliente));
 
         $sql = $pdo->prepare("INSERT INTO `historico` (`id`, `dataInicio`, `carro`, `dataFim`, `cliente`, `pagamento`) VALUES (NULL,?,?,?,?,?)");
-        $sql->execute(array($data_inicio, $carro, $data_fim, $cliente,0));
+        $sql->execute(array($data_inicio, $carro, $data_fim, $cliente, 0));
 
         $sql = $pdo->prepare("UPDATE `carro` SET disponibilidade=? WHERE placa=? ");
         $sql->execute(array(0, $carro));
-        
     }
 
 
@@ -100,6 +99,6 @@ class AluguelModel
         $placaCarro = $info[0]['carro'];
         $cliente = $info[0]['cliente'];
         $sql = $pdo->prepare("UPDATE `historico` SET pagamento = 1 WHERE `carro` = ? AND `cliente` = ? ");
-        $sql->execute(array($placaCarro,$cliente));
+        $sql->execute(array($placaCarro, $cliente));
     }
 }

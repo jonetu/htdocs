@@ -30,7 +30,7 @@ class PagamentoController extends Controller
                 }
                 foreach ($clientes as $cpf => $valor) {
                     if ($clientes[$cpf]["cpf"] == $aluguelSelecionado[0]["cliente"]) {
-                        $cliente= $clientes[$cpf];
+                        $cliente = $clientes[$cpf];
                     }
                 }
             }
