@@ -14,8 +14,6 @@ class HomeController extends Controller
 
     public function execute()
     {
-        $pdo = new PDO('mysql:host=localhost;dbname=locadora', 'root', '');
-
         if (isset($_POST['action'])) {
             $data_inicio = date("Y-m-d");
             $data_fim = $_POST['data'];
