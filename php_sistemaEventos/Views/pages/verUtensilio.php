@@ -11,77 +11,40 @@
     </h1>
 
     <?php
-    //resgatar as informacoes de todos os carros
-    $info = $parameter['utensilios'];
+    //resgatar as informacoes de todos os utensilios
+    $utensilios = $parameter['utensilios'];
     ?>
 
-
     <div class="container">
-        <table class="table">
-            <thead class="thead-light">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">Imagem</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">cpf</th>
-                    <th scope="col">email</th>
-                    <th scope="col">telefone</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Preço Unidade</th>
                 </tr>
             </thead>
             <tbody>
-                <div class="table-responsive-sm">
+                <?php
+                foreach ($utensilios as $key => $value) {
+                    echo "<td scope='row'><img src='uploads/utensilio/".$utensilios[$key]['foto']."' width=64 height=100%>"."</td>";
+                    echo "<td>".$utensilios[$key]['nome']."</td>";
+                    if(strlen($utensilios[$key]['descricao']) > 54){
+                        echo "<td>".substr($utensilios[$key]['descricao'],0,53);
+                        echo "<br>";
+                        echo substr($utensilios[$key]['descricao'],53);
+                        echo "</td>";
+                    }else{
+                        echo "<td>".$utensilios[$key]['descricao']."</td>";
+                    }
+                    echo "<td>R$ ".$utensilios[$key]['preco']."/unid</td>";
+                    echo "</tr>";
+                }
 
+                ?>
             </tbody>
         </table>
-    </div>
-
-
-
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Preço Unidade</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td scope="row"><img src="https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                width=64 height=100% >
-                </td>
-                <td>Nome Nome
-                </td>
-                <td>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição<br>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição</td>
-                <td>R$ 15/unid</td>
-            </tr>
-            <tr>
-                <td scope="row"><img src="https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                width=64 height=100% >
-                </td>
-                <td>Nome Nome
-                </td><td>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição<br>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição</td>
-                <td>R$ 20/unid</td>
-            </tr>
-            <tr>
-                <td scope="row"><img src="https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                width=64 height=100% >
-                </td>
-                <td>Nome Nome
-                </td><td>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição<br>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição</td>
-                <td>R$ 15/unid</td>
-            </tr>
-            <tr>
-                <td scope="row"><img src="https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                width=64 height=100% >
-                </td>
-                <td>Nome Nome
-                </td><td>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição<br>DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescrição</td>
-                <td>R$ 15/unid</td>
-            </tr>
-        </tbody>
-    </table>
     </div>
 </body>
 

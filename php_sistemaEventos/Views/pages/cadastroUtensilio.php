@@ -15,24 +15,23 @@
 
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" required placeholder="Nome do item" maxlength="25">
+        <input type="text" class="form-control" name="nome" required placeholder="Nome do item" maxlength="30">
       </div>
 
       <div class="form-group">
         <label for="nome">Descrição</label>
-        <textarea class="form-control" name="descricao" required placeholder="Descrição" maxlength="65" rows="2"></textarea>
+        <textarea class="form-control" name="descricao" required placeholder="Descrição" maxlength="128" rows="2"></textarea>
       </div>
 
       <div class="form-group">
         <label for="precoDia">Preço Unidade</label>
-        <input type="number" class="form-control" name="preco" required placeholder="R$">
+        <input type="number" step="0.01" class="form-control" name="preco" required placeholder="R$">
       </div>
 
       <div class="form-group">
         <label for="file" class="form-label">Escolha a foto</label>
         <input class="form-control-plaintext" type="file" name="file" required>
       </div>
-      
       <button class="btn btn-primary" type="submit" name="submit">Cadastrar</button>
     </form>
   </div>

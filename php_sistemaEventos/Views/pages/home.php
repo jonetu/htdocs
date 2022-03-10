@@ -9,11 +9,6 @@
     <?php
     //resgatar as informacoes de todas as montagens
     $montagem = array_reverse($parameter['montagem']);
-    foreach ($montagem as $key => $value) {
-        //echo $montagem[$key]['foto'];
-        //echo "<img class='card-img-top' style='height: 100%; width: 100%; display: block;' src='uploads/".$montagem[$key]['foto']."' data-holder-rendered='true'>";
-    }
-
     ?>
 
     <div class="album py-5 bg-light">
@@ -23,16 +18,16 @@
                 foreach ($montagem as $key => $value) {
                     echo "<div class='col-md-4'>";
                     echo "<div class='card mb-4 box-shadow'>";
-                    echo "<img class='card-img-top' style='height: 100%; width: 100%; display: block;' src='uploads/".$montagem[$key]['foto']."' data-holder-rendered='true'>";
+                    echo "<img class='card-img-top' style='height: 100%; width: 100%; display: block;' src='uploads/" . $montagem[$key]['foto'] . "' data-holder-rendered='true'>";
                     echo "<div class='card-body'>";
-                    echo "<h4 class='jumbotron-heading'>".$montagem[$key]['nome']."</h4>";
-                    echo "<p class='card-text'>".$montagem[$key]['descricao']."</p>";
+                    echo "<h4 class='jumbotron-heading'>" . $montagem[$key]['nome'] . "</h4>";
+                    echo "<p class='card-text'>" . $montagem[$key]['descricao'] . "</p>";
                     echo "<div class='d-flex justify-content-between align-items-center'>";
                     echo "<div class='btn-group'>";
                     echo "<button type='button' class='btn btn-sm btn-outline-info'>Selecionar</button>";
                     echo "<button type='button' class='btn btn-sm btn-outline-dark'>Editar</button>";
                     echo "</div>";
-                    echo "<small class='text-muted'>Preço base: R$".$montagem[$key]['preco']."</small>";
+                    echo "<small class='text-muted'>Preço base: R$" . $montagem[$key]['preco'] . "</small>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

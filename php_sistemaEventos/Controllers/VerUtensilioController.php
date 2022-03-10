@@ -8,7 +8,8 @@ class VerUtensilioController extends Controller{
     }
 
     public function execute(){
-        $this->view->render(array());
+        $utensilio = \Models\UtensilioModel::listarUtensilio();
+        $this->view->render(array('utensilios' => $utensilio));
     }
 
 }

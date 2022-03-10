@@ -49,7 +49,6 @@ class CadastroMontagemController extends Controller
                     $preco = $_POST['preco'];
                     $foto = $fileNewName;
                     \Models\MontagemModel::cadastrar($nome, $tema, $descricao, $foto, $preco);
-                    
                 }
             } else {
                 echo "<hr>Imagem nao aceita - VERIFIQUE O TIPO DO ARQUIVO ACEITO 'jpg','png','jpeg','webp','bmp' E TAMANHO DE ATE 50MB<hr>";
