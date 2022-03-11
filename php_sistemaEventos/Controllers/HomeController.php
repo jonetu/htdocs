@@ -14,7 +14,6 @@ class HomeController extends Controller
 
     public function execute()
     {
-
         $montagem = \Models\MontagemModel::listarMontagem();
         $this->view->render(array('montagem' => $montagem));
     }
