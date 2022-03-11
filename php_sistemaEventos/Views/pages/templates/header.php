@@ -31,8 +31,9 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-md-0">
-        <input class="form-control" type="text" placeholder="Pesquisar">
+      <form class="form-inline my-2 md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar">
+        <button class="btn btn-outline-warning" type="submit">Pesquisar</button>
       </form>
     </div>
   </nav>
