@@ -26,4 +26,13 @@ class MontagemModel
         $info = $sql->fetchAll();
         return $info;
     }
+    
+    public static function getMontagemPorID($id)
+    {
+        $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
+        $sql = $pdo->prepare("SELECT * from montagem WHERE id=?");
+        $sql->execute(array($id));
+        $info = $sql->fetchAll();
+        return $info;
+    }
 }
