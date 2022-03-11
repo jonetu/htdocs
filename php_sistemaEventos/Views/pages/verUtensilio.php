@@ -5,10 +5,11 @@
 </head>
 
 <body>
-    <h1 class="container d-flex justify-content-center">
-        Nossos Utensilios
-
-    </h1>
+    <section class=" text-center bg-light">
+        <div class="container">
+            <h1 class="display-4"> Nossos Utensilios</h1>
+        </div>
+    </section>
 
     <?php
     //resgatar as informacoes de todos os utensilios

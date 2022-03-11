@@ -24,7 +24,7 @@
                     echo "<p class='card-text'>" . $montagem[$key]['descricao'] . "</p>";
                     echo "<div class='d-flex justify-content-between align-items-center'>";
                     echo "<div class='btn-group'>";
-                    echo "<button type='button' class='btn btn-sm btn-outline-info'>Selecionar</button>";
+                    echo "<a href='selecionado?id=".$montagem[$key]['id']."'><button  type='button' class='btn btn-sm btn-outline-info'>Selecionar</button></a>";
                     echo "<button type='button' class='btn btn-sm btn-outline-dark'>Editar</button>";
                     echo "</div>";
                     echo "<small class='text-muted'>Preço base: R$" . $montagem[$key]['preco'] . "</small>";
