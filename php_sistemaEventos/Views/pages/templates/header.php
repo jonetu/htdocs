@@ -14,7 +14,7 @@
 
     </button>
 
-    <div class="navbar-collapse collapse" id="navbarsExample03" style="">
+    <div class="navbar-collapse collapse" id="navbarsExample03">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="home" style="color: rgb(0,146,151);">Ver decorações</a>
