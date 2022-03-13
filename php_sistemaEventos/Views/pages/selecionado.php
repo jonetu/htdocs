@@ -14,6 +14,8 @@
     <?php
     $selecionado = $parameter['selecionado'];
     $utensilios = $parameter['utensilio'];
+    $lista = $parameter['lista'];
+    $precoDosItensDaLista = 0;
     ?>
     <div class="container">
         <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -34,6 +36,82 @@
 
         </div>
     </div>
+
+
+
+
+    <?php
+    if ($lista) {
+        echo "<div class='container'>";
+        echo "<table class='table table-striped'>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th scope='col'>Imagem</th>";
+        echo "<th scope='col'>Nome</th>";
+        echo "<th scope='col'>Preço Unidade</th>";
+        echo "<th scope='col'>Quantidade</th>";
+        echo "<th scope='col'>Preço</th>";
+        echo "<th scope='col'>Tirar da lista</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+
+
+        if (DEBUG) {
+            echo "tem coisa na lista";
+            echo "<pre>";
+            print_r($lista);
+            echo "</pre>";
+        }
+        foreach ($lista as $key => $value) {
+            echo "<td scope='row'><img src='uploads/utensilio/" . $lista[$key]['foto'] . "' width=64 height=100%>" . "</td>";
+            echo "<td>" . $lista[$key]['nome'] . "</td>";
+            echo "<td>R$ " . $lista[$key]['preco'] . "/unid</td>";
+            echo "<td>" . $lista[$key]['quantidade'] . " unidades</td>";
+
+            echo "<td>R$ " . $lista[$key]['precoFinal'] . "</td>";
+            $precoDosItensDaLista += $lista[$key]['precoFinal'];
+            
+            echo "<td>
+        <form method='post' name='delete' value='delete' enctype='multipart/form-data' class='form-inline'>
+        <div class='form-group'>
+        <input type='hidden' name='id' value='" . $lista[$key]['id'] . "'>
+        </div>
+        <button  type='delete' name='delete' value='delete' class='btn btn-danger btn-sm'>remover</button>
+        </form>
+        
+        
+        </td>";
+
+
+            echo "</tr>";
+        }
+
+
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
+    }
+
+    ?>
+
+    <section class=" text-center bg-dark">
+    <p class="lead text-primary">Valor da montagem: R$<?php   echo $selecionado[0]['preco']; ?></p>
+    <p class="lead text-info">Valor dos itens: R$<?php   echo $precoDosItensDaLista ?></p>
+        <p class="lead text-success">Preco Final: R$<?php   echo $precoDosItensDaLista + $selecionado[0]['preco']; ?></p>
+        <div class="container">
+            <button type='submit' name='finalizar' class='btn btn-success btn-lg'>finalizar</button>
+        </div>
+    </section>
+    <br>
+
+    <section class=" text-center bg-light">
+        <div class="container">
+            <h1 class="display-4">Colocar Utensilios</h1>
+        </div>
+    </section>
+
+
     <div class="container">
         <table class="table table-striped">
             <thead>
@@ -42,6 +120,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Preço Unidade</th>
+                    <th scope="col">Adicionar na lista</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +141,8 @@
                     echo "<td>
                     <form method='post' enctype='multipart/form-data' class='form-inline'>
                     <div class='form-group'>
-                    <input style='width: 60px'type='number' class='form-control form-control-sm' id='quantidade'>
+                    <input style='width: 60px'type='number' value =0 name='quantidade' class='form-control form-control-sm'>
+                    <input type='hidden' name='id' value='" . $utensilios[$key]['id'] . "'>
                     </div>
                     <button  type='submit' name='submit' class='btn btn-secondary btn-sm'>+</button>
                     </form></td>";
@@ -76,5 +156,14 @@
         </table>
     </div>
 </body>
+<script>
+    window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
 
-</html>
+
+
+</script>
