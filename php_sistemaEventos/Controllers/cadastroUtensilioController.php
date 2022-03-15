@@ -22,10 +22,13 @@ class cadastroUtensilioController extends Controller
             $fileExt = strtolower(explode('.', $fileName)[1]);
             //$target_file = $target_dir . basename($_FILES["file"]['name']);
             $uploadOk = true;
-            print_r($_FILES["file"]);
-            echo "<br>BASENAME=" . basename($fileName);
-            echo "<br>TMPNAME=" . basename($fileTmpName);
-            echo "<br>FILE EXT=" . basename($fileExt);
+            if (DEBUG) {
+
+                print_r($_FILES["file"]);
+                echo "<br>BASENAME=" . basename($fileName);
+                echo "<br>TMPNAME=" . basename($fileTmpName);
+                echo "<br>FILE EXT=" . basename($fileExt);
+            }
 
             $allowedFileExt = array('jpg', 'png', 'jpeg', 'webp', 'bmp');
 
@@ -39,10 +42,11 @@ class cadastroUtensilioController extends Controller
 
             if ($uploadOk) {
                 $fileNewName = uniqid('', true) . "." . $fileExt;
-                echo "<hr>fileID = " . $fileNewName;
+                if (DEBUG) echo "<hr>fileID = " . $fileNewName;
                 $UploadDir = 'uploads/utensilio/' . $fileNewName;
                 if (move_uploaded_file($fileTmpName, $UploadDir)) {
-                    echo "The file " . basename($_FILES["file"]['name']) . " has been uploaded.";
+                    if (DEBUG) echo "The file " . basename($_FILES["file"]['name']) . " has been uploaded.";
+                    echo "<script>alert('Cadastrado com sucesso!')</script>";
 
                     $nome = $_POST['nome'];
                     $descricao = $_POST['descricao'];
@@ -51,7 +55,8 @@ class cadastroUtensilioController extends Controller
                     \Models\UtensilioModel::cadastrar($nome, $descricao, $preco, $foto);
                 }
             } else {
-                echo "<hr>Imagem nao aceita - VERIFIQUE O TIPO DO ARQUIVO ACEITO 'jpg','png','jpeg','webp','bmp' E TAMANHO DE ATE 50MB<hr>";
+                if (DEBUG) echo "<hr>Imagem nao aceita - VERIFIQUE O TIPO DO ARQUIVO ACEITO 'jpg','png','jpeg','webp','bmp' E TAMANHO DE ATE 50MB<hr>";
+                echo "<script>alert('Imagem nao aceita - VERIFIQUE O TIPO DO ARQUIVO ACEITO  jpg , png , jpeg , webp , bmp  E TAMANHO DE ATE 50MB')</script>";
             }
         }
         $this->view->render(array());
