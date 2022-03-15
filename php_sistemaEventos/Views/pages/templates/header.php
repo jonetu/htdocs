@@ -31,13 +31,14 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar">
-        <button class="btn btn-outline-warning" type="submit">Pesquisar</button>
+      <form method='post' class="form-inline my-2 md-0" enctype='multipart/form-data'>
+        <input class="form-control mr-sm-2" type="text" name='search' placeholder="Pesquisar">
+        <button class="btn btn-outline-warning" >Pesquisar</button>
       </form>
     </div>
   </nav>
 </header>
+<!-- Script para fixar navbar_top no topo e sumir com scroll -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', function() {
@@ -46,5 +47,12 @@
       document.body.style.paddingTop = navbar_height + 'px';
     });
   });
+</script>
+
+<!-- Script para evitar reenvio do form -->
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
 </script>
 <body>
