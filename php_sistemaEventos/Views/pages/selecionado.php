@@ -27,10 +27,10 @@
             <div class="card-body d-flex flex-column align-items-start">
                 <strong class="d-inline-block mb-2 text-muted">Montagem Selecionada, tema: <?php echo ucfirst($selecionado[0]['tema']); ?></strong>
                 <h3 class="mb-0">
-                    <a class="text-primary" href="#"><?php echo $selecionado[0]['nome']; ?></a>
+                    <a class="text-primary"><?php echo $selecionado[0]['nome']; ?></a>
                 </h3>
                 <p class="card-text mb-auto"><?php echo $selecionado[0]['descricao']; ?></p>
-                <div class="mb-1 text-muted">Preço de base: R$<?php echo $selecionado[0]['preco']; ?></div>
+                <div class="mb-1 text-muted">Preço de base: <p class="d-inline-block text-primary">R$<?php echo $selecionado[0]['preco']; ?></p></div>
                 <a href="home">Escolher outro</a>
             </div>
 
@@ -65,11 +65,15 @@
         }
         foreach ($lista as $key => $value) {
             echo "<td scope='row'><img src='uploads/utensilio/" . $lista[$key]['foto'] . "' width=64 height=100%>" . "</td>";
-            echo "<td>" . $lista[$key]['nome'] . "</td>";
-            echo "<td>R$ " . $lista[$key]['preco'] . "/unid</td>";
-            echo "<td>" . $lista[$key]['quantidade'] . " unidades</td>";
-
-            echo "<td>R$ " . $lista[$key]['precoFinal'] . "</td>";
+            echo "<td><strong><em>" . $lista[$key]['nome'] . "</em></strong></td>";
+            echo "<td><small>R$ " . $lista[$key]['preco'] . " por unidade</small></td>";
+            if($lista[$key]['quantidade'] == 1 ){
+                echo "<td>" . $lista[$key]['quantidade'] . " unidade</td>";
+                
+            }else{
+                echo "<td>" . $lista[$key]['quantidade'] . " unidades</td>";
+            }
+            echo "<td class='text-info'>R$ " . $lista[$key]['precoFinal'] . "</td>";
             $precoDosItensDaLista += $lista[$key]['precoFinal'];
             
             echo "<td>
@@ -91,6 +95,8 @@
         echo "</tbody>";
         echo "</table>";
         echo "</div>";
+    }else{
+        if(DEBUG) echo "lista vazia";
     }
 
     ?>
@@ -127,24 +133,24 @@
                 <?php
                 foreach ($utensilios as $key => $value) {
                     echo "<td scope='row'><img src='uploads/utensilio/" . $utensilios[$key]['foto'] . "' width=64 height=100%>" . "</td>";
-                    echo "<td>" . $utensilios[$key]['nome'] . "</td>";
+                    echo "<td><strong><em>" . $utensilios[$key]['nome'] . "</em></strong></td>";
                     if (strlen($utensilios[$key]['descricao']) > 54) {
-                        echo "<td>" . substr($utensilios[$key]['descricao'], 0, 53);
+                        echo "<td class='text-muted'><small>" . substr($utensilios[$key]['descricao'], 0, 53);
                         echo "<br>";
                         echo substr($utensilios[$key]['descricao'], 53);
-                        echo "</td>";
                     } else {
-                        echo "<td>" . $utensilios[$key]['descricao'] . "</td>";
+                        echo "<td class='text-muted'><small>" . $utensilios[$key]['descricao'];
                     }
-                    echo "<td>R$ " . $utensilios[$key]['preco'] . "/unid</td>";
+                    echo "</small></td>";
+                    echo "<td>R$ " . $utensilios[$key]['preco'] . " por unidade</td>";
 
                     echo "<td>
                     <form method='post' enctype='multipart/form-data' class='form-inline'>
                     <div class='form-group'>
-                    <input style='width: 60px'type='number' value =0 name='quantidade' class='form-control form-control-sm'>
+                    <input style='width: 60px'type='number' min = '1' value =1 name='quantidade' class='form-control form-control-sm'>
                     <input type='hidden' name='id' value='" . $utensilios[$key]['id'] . "'>
                     </div>
-                    <button  type='submit' name='submit' class='btn btn-secondary btn-sm'>+</button>
+                    <button  type='submit' name='submit' class='btn btn-success btn-sm'>+</button>
                     </form></td>";
 
 
