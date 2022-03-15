@@ -30,16 +30,16 @@
                 <?php
                 foreach ($utensilios as $key => $value) {
                     echo "<td scope='row'><img src='uploads/utensilio/".$utensilios[$key]['foto']."' width=64 height=100%>"."</td>";
-                    echo "<td>".$utensilios[$key]['nome']."</td>";
+                    echo "<td><strong><em>".$utensilios[$key]['nome']."</em></strong></td>";
                     if(strlen($utensilios[$key]['descricao']) > 54){
-                        echo "<td>".substr($utensilios[$key]['descricao'],0,53);
+                        echo "<td class='text-muted'><small>".substr($utensilios[$key]['descricao'],0,53);
                         echo "<br>";
                         echo substr($utensilios[$key]['descricao'],53);
-                        echo "</td>";
                     }else{
-                        echo "<td>".$utensilios[$key]['descricao']."</td>";
+                        echo "<td class='text-muted'><small>".$utensilios[$key]['descricao'];
                     }
-                    echo "<td>R$ ".$utensilios[$key]['preco']."/unid</td>";
+                    echo "</small></td>";
+                    echo "<td class='text-info'>R$ ".$utensilios[$key]['preco']." por unidade</td>";
                     echo "</tr>";
                 }
 
