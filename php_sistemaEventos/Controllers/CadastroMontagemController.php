@@ -4,7 +4,7 @@ namespace Controllers;
 
 class CadastroMontagemController extends Controller
 {
-
+    private $view;
     public function __construct()
     {
         $this->view = new \Views\View('CadastroMontagem');

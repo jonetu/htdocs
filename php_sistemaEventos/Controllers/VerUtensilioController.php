@@ -1,7 +1,7 @@
 <?php 
 namespace Controllers;
 class VerUtensilioController extends Controller{
-
+    private $view;
     public function __construct()
     {
         $this->view = new \Views\View('VerUtensilio');

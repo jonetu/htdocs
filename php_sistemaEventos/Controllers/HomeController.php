@@ -6,7 +6,8 @@ use PDO;
 
 class HomeController extends Controller
 {
-
+	
+    private $view;
     public function __construct()
     {
         $this->view = new \Views\View('home');
@@ -22,3 +23,4 @@ class HomeController extends Controller
         $this->view->render(array('montagem' => $montagem));
     }
 }
+

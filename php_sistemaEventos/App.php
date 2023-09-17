@@ -16,9 +16,10 @@ class App
 
 
         //verificando url..
-        if (isset($_GET['url'])) {
+        if ($_SERVER['REQUEST_URI'] != '/') {
             //definir url apenas com a raiz
-            $url = explode('/', $_GET['url'])[0];
+            // $url = explode('/', $_GET['url'])[0];
+            $url = explode('/',$_SERVER['REQUEST_URI'])[1];
         } else {
             $url = 'Home';
         }
