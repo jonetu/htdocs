@@ -20,19 +20,21 @@ class MontagemModel
 
     public static function listarMontagem()
     {
-        $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
-        $sql = $pdo->prepare("SELECT * from montagem");
-        $sql->execute();
-        $info = $sql->fetchAll();
+        // $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
+        // $sql = $pdo->prepare("SELECT * from montagem");
+        // $sql->execute();
+        // $info = $sql->fetchAll();
+        $info = [];
         return $info;
     }
     
     public static function getMontagemPorID($id)
     {
-        $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
-        $sql = $pdo->prepare("SELECT * from montagem WHERE id=?");
-        $sql->execute(array($id));
-        $info = $sql->fetchAll();
+        // $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
+        // $sql = $pdo->prepare("SELECT * from montagem WHERE id=?");
+        // $sql->execute(array($id));
+        // $info = $sql->fetchAll();
+        $info = [];
         return $info;
     }
 }

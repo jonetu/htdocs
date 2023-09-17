@@ -20,10 +20,11 @@ class UtensilioModel
 
     public static function listarUtensilio()
     {
-        $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
-        $sql = $pdo->prepare("SELECT * from utensilio");
-        $sql->execute();
-        $info = $sql->fetchAll();
+        // $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
+        // $sql = $pdo->prepare("SELECT * from utensilio");
+        // $sql->execute();
+        // $info = $sql->fetchAll();
+        $info = [];
         return $info;
     }
 
@@ -69,10 +70,11 @@ class UtensilioModel
      * Retorna a lista de acordo com o parametro contrato_id fornecido
      */
     public static function GET_Lista($contrato_Id){
-        $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
-        $sql = $pdo->prepare("SELECT * from `listadeutensilio` WHERE `contrato_Id` = ?");
-        $sql->execute(array($contrato_Id));
-        $info = $sql->fetchAll();
+        // $pdo = new PDO(__DSN__, __USERNAME__, __PASSWORD__);
+        // $sql = $pdo->prepare("SELECT * from `listadeutensilio` WHERE `contrato_Id` = ?");
+        // $sql->execute(array($contrato_Id));
+        // $info = $sql->fetchAll();
+        $info = [];
         return $info;
     }
 
